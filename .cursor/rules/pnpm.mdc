@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# PNPM
+
+- Always use pnpm when possible for package management
