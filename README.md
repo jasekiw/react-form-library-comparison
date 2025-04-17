@@ -1,54 +1,31 @@
-# React + TypeScript + Vite
+# React Form Libraries Performance Comparison
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates and compares the performance characteristics of three popular React form libraries:
+- React Hook Form
+- Tanstack Form (formerly React Hook Form)
+- Formik
 
-Currently, two official plugins are available:
+## Performance Results
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### React Hook Form
+- ✅ Achieves input-isolated renders (only the changed input re-renders)
+- ✅ Minimal re-renders (only 1 render on form initialization)
+- ✅ Excellent performance with large forms
+- ✅ Works well with both controlled and uncontrolled inputs
 
-## Expanding the ESLint configuration
+### Tanstack Form
+- ❌ Fails to maintain input-isolated renders when a validation schema is provided
+- ⚠️ Requires careful configuration to achieve optimal performance
+- ✅ Good TypeScript support
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Formik
+- ❌ Re-renders the entire form on any input change
+- ⚠️ Performance issues with large forms
+- ✅ Simple API and good documentation
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Run Project
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+pnpm install
+pnpm run dev
 ```
