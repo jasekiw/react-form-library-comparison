@@ -42,7 +42,7 @@
 }
 
 .app-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 2rem;
 }
@@ -51,10 +51,12 @@
   display: flex;
   gap: 2rem;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .form-section {
   flex: 1;
+  min-width: 300px;
 }
 
 .form-section h2 {
