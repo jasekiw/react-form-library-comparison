@@ -1,4 +1,4 @@
-import { ExampleForm } from './components/ExampleForm'
+import { FormikExampleForm } from './components/FormikExampleForm'
 import { ReactHookExampleForm } from './components/ReactHookExampleForm'
 import { TanstackFormExample } from './components/TanstackFormExample'
 import './App.css'
@@ -30,7 +30,7 @@ const FormikExample = memo(function FormikExample() {
   return (
     <div className="form-section">
       <h2>Formik Form</h2>
-      <ExampleForm />
+      <FormikExampleForm />
     </div>
   )
 })

@@ -31,7 +31,7 @@ const initialValues = {
   confirmPassword: '',
 };
 
-export const ExampleForm = () => {
+export const FormikExampleForm = () => {
   const handleSubmit = (values: typeof initialValues) => {
     console.log('Form submitted:', values);
   };
