@@ -1,5 +1,6 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { FormikField } from './FormikField';
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string().required('First name is required'),
@@ -46,65 +47,16 @@ export const FormikExampleForm = () => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <div className="form-group">
-              <label htmlFor="firstName">First Name</label>
-              <Field type="text" name="firstName" id="firstName" />
-              <ErrorMessage name="firstName" component="div" className="error" />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="lastName">Last Name</label>
-              <Field type="text" name="lastName" id="lastName" />
-              <ErrorMessage name="lastName" component="div" className="error" />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <Field type="email" name="email" id="email" />
-              <ErrorMessage name="email" component="div" className="error" />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="phone">Phone Number</label>
-              <Field type="text" name="phone" id="phone" />
-              <ErrorMessage name="phone" component="div" className="error" />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="address">Address</label>
-              <Field type="text" name="address" id="address" />
-              <ErrorMessage name="address" component="div" className="error" />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="city">City</label>
-              <Field type="text" name="city" id="city" />
-              <ErrorMessage name="city" component="div" className="error" />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="state">State</label>
-              <Field type="text" name="state" id="state" />
-              <ErrorMessage name="state" component="div" className="error" />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="zipCode">Zip Code</label>
-              <Field type="text" name="zipCode" id="zipCode" />
-              <ErrorMessage name="zipCode" component="div" className="error" />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <Field type="password" name="password" id="password" />
-              <ErrorMessage name="password" component="div" className="error" />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="confirmPassword">Confirm Password</label>
-              <Field type="password" name="confirmPassword" id="confirmPassword" />
-              <ErrorMessage name="confirmPassword" component="div" className="error" />
-            </div>
+            <FormikField name="firstName" label="First Name" />
+            <FormikField name="lastName" label="Last Name" />
+            <FormikField name="email" label="Email" type="email" />
+            <FormikField name="phone" label="Phone Number" />
+            <FormikField name="address" label="Address" />
+            <FormikField name="city" label="City" />
+            <FormikField name="state" label="State" />
+            <FormikField name="zipCode" label="Zip Code" />
+            <FormikField name="password" label="Password" type="password" />
+            <FormikField name="confirmPassword" label="Confirm Password" type="password" />
 
             <button type="submit" disabled={isSubmitting}>
               Submit
